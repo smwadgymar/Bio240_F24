@@ -1,0 +1,207 @@
+---
+title: "Intro_to_Data_Viz"
+author: "SMWadgymar"
+date: '2022-08-15'
+output: html_document
+---
+
+Let's explore a real dataset that resulted in an allegation of ethnic discrimination against the California Department of Developmental Services (DDS).
+
+In the United States, individuals with developmental disabilities typically receive services and support from state governments.  The State of California allocates funds to developmentally-disabled residents through the DDC; individuals receiving DDS funds are referred to as 'consumers'.  The dataset you will work with represents a sample of 1,000 DDS consumers out of a total of ~250,000 and includes information about their age, gender, ethnicity, and the amount of financial support per consumer provided by the DDS.
+
+A team of researchers examined the mean annual expenditure on consumers by ethnicity and found that the mean annual expenditures on Hispanic consumers was approximately one-third of the mean expenditures on White non-Hispanic consumers.  As a result, an allegation of ethnic discrimination was brought against the California DDS.
+
+This lab provides a walkthrough to conducting an exploratory analysis that not only investigates the relationship between two variables of interest, but also considers whether other variables might be influencing that relationship.
+
+
+1) Load the data from a package associated with our textbook.  The library function below will load the dataset from a package that we have already installed and the data function loads the data into your workspace.  You should see dds.discr show up in the environment tab on the top left panel.
+
+```{r}
+library(oibiostat)
+data("dds.discr")
+```
+
+
+2) Let's explore this dataset using the summary function.
+
+```{r}
+summary(dds.discr)
+```
+
+Q: What does the summary function do?  What are the names and types of variables included in this dataset?
+
+A: 
+
+
+
+3) Below is the code for some of the most common graphs and summaries people make.  To make this as useful a reference as possible, replace the ??? with either 'continuous' or 'categorical' as appropriate.
+
+To make a histogram:
+hist(???)
+
+To make a boxplot:
+boxplot(???)
+
+To make a set of boxplots across a categorical variable (Y~X):
+boxplot(???~???)
+
+To make a barplot of a continuous variable:
+barplot(???)
+
+To make a scatterplot (X, Y) OR (Y~X):
+plot(???, ???)
+
+To make a barplot exhibiting counts across categories:
+plot(???)
+
+To make a table of counts:
+table(???)
+
+To make a table reported in proportions:
+prop.table(table(???))
+
+
+
+4) Make an appropriate graph and/or table for age in the first code chunk and another for age.cohort in the second code chunk and describe their distributions.  Do consumers tend to be older or younger?
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+Description:
+
+
+5) Make an appropriate graph and/or table for ethnicity and describe its distribution.  Is there equal representation of ethnic groups in this sample of consumers?
+
+```{r}
+
+```
+
+Description: 
+
+
+6) Make an appropriate graph and/or table for gender and describe its distribution [note that what they are really reporting here is sex].  Is there equal representation of sexes in this sample of consumers?
+
+```{r}
+
+```
+
+Description: 
+
+
+7) Make an appropriate graph and/or table for expenditures and describe its distribution. For most of the consumers, is the amount of financial support provided by the DDS relatively high or low?
+
+```{r}
+
+```
+
+Description: 
+
+To extract a specific percentile of a continuous variable, you can use the quantile function like this: quantile(variable, decimal), where decimal is the percentile you are interested listed as a decimal.
+
+How would you extract the IQR of expenditure?
+
+```{r}
+quantile(???, ???)
+
+quantile(???, ???)
+```
+
+
+8) How do annual expenditures vary by age?  Is there a large amount of variation in expenditures between age cohorts?
+
+```{r}
+
+```
+
+Description:
+
+
+
+9) Do annual expenditures seem to vary by gender? Note that the dataset uses the term gender here, but what they are actually recording is sex.
+
+```{r}
+
+```
+
+Description:
+
+
+
+10) How does the distribution of expenditures vary by ethnic group?  Does there seem to be a difference in the amount of funding that a person receives, on average, between different ethnicities?
+
+```{r}
+
+```
+
+Description: 
+
+
+11) The following code will let you examine the data for the two largest ethnic groups, Hispanic and White non-Hispanic, which comprise the majority of the data.  In prior exercises, we used the subset() function to examine portions of the data independently. Here, we will subset data using brackets that specify specific criteria of interest. What do each of the components of this line of code accomplish?  Do Hispanic consumers, on average, seem to receive less financial support from the California DDS than a White non-Hispanic consumer?
+
+```{r}
+boxplot(dds.discr$expenditures[dds.discr$ethnicity=="Hispanic"], dds.discr$expenditures[dds.discr$ethnicity=="White not Hispanic"], names=c("Hispanic", "White not Hispanic"))
+```
+
+Description:
+
+
+
+12) Recall that expenditures are strongly associated with age - older individuals tend to receive more financial support.  Is there also an association between age and ethnicity?  Examine the distribution of age within each of the two largest ethnic groups and describe your findings.
+
+```{r}
+hist(dds.discr$???[dds.discr$???=="???"])
+prop.table(table(???))
+```
+
+```{r}
+hist(dds.discr$???[dds.discr$???=="???"])
+prop.table(table(???))
+```
+
+
+Description:
+
+
+
+13) A confounding variable is one that is associated with the response variable and the exploratory variable under consideration.  In this case, age is a confounding variable for the relationship between expenditures and ethnicity.
+
+For a closer look at the relationship between age, ethnicity, and expenditures, compare how average expenditures differ by ethnicity within each age cohort.
+
+First, subset data into two ethnicity groups:
+
+```{r}
+dds.hispanics = dds.discr[dds.discr$??? == "???",]
+  
+dds.white.non.hisp = ???
+```
+
+Second, calculate mean expenditures by age cohort for Hispanics using the tapply() function:
+
+```{r}
+hisp.means = tapply(dds.hispanics$expenditures.dds.hispanics$age.cohort, mean)
+hisp.means
+
+nonhisp.means = ???
+nonhisp.means
+```
+
+Q: What does the tapply function seem to do?
+
+A:
+
+
+
+Lastly, calculate the difference between Hispanic and White non Hispanic average expenditures across age cohorts.  Based on this exploratory analysis, does there seem to be evidence of ethnic discrimination in the amount of financial support provided by the California DDS? Summarize your findings in language accessible to a non-statistician.
+
+```{r}
+??? - ???
+```
+
+Description: 
+
+
