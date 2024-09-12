@@ -1,0 +1,77 @@
+---
+title: "Getting to know rbinom"
+author: "SMWadgymar"
+date: '2022-08-16'
+output: html_document
+---
+
+A probability distribution is a mathematical description of the possible outcomes of a random variable. There are many types of distributions that have been characterized mathematically and are useful to us when analyzing data. In our simulations above, each flip of a coin was considered a draw, and the outcome of the flip was random. Our simulations used fair coins, which have a 50% chance of coming up heads or tails. These outcomes follow a binomial distribution.  
+
+The binomial distribution is the distribution that describes the frequency of outcomes for each set of trials where there are exactly two possible outcomes for each trial (e.g. heads or tails, survives or dies, etc.).  The notation used to describe the binomial distribution, B(n,p), includes two parameters: n is the size (# flips) and p is the probability that each is heads (for now, 0.5).  A variable is binomially distributed if (1) the trials are independent, (2) the number of trials is fixed, (3) each trial outcome can be classified as success or failure, and (4) the probability of success is the same for each trial. This is one of many distributions and we will touch on a few distributions (not all by any means!) in class. 
+
+R has many built-in functions that allow us to draw samples from well-characterized distributions.  We’ll make use of three of those functions for the binomial distribution here: ‘rbinom’, ‘dbinom’, and ‘pbinom’. Importantly, we will make use of these functions to examine probabilities in two ways. First, we’ll run simulations, as we did before. Simulations are digital experiments. We use them to conduct large, replicated experiments that would not be possible in real life, and as in real life, we want our outcomes to be the product of random chance. The goal is to run enough simulations that the probabilities that we estimate are likely very close approximations of the true probabilities (which are often unknown). For our second approach, we will calculate exact probabilities. We can do this because we are drawing our samples from a well-characterized distribution where the exact probabilities are known.
+
+
+
+####Getting to know the 'rbinom' function
+
+1) Let's simulate a random draw from a binomial distribution.  The rbinom function has three arguments: 
+
+n, or the number of observations for each trial (ex. number of flips of a coin)
+size, or the number of trials (ex. number of coins that are flipped n times)
+prob, or the probability of success (p) in each trial (ex. probability of getting heads)
+
+
+```{r}
+rbinom(1, 1, 0.5)
+```
+
+Q: What does the output here mean?
+
+A: 
+
+
+2) How would you adjust the code above to simulate ten flips of a single coin?
+
+```{r}
+rbinom(???, ???, 0.5)
+```
+
+Q: What does the output here mean?
+
+A: 
+
+
+3) How about one draw of ten coins?
+
+```{r}
+rbinom(???, ???, 0.5)
+```
+
+Q: What does the output here mean?
+
+A: 
+
+
+4) How about ten draws with each having 10 coins?
+
+```{r}
+
+```
+
+Q: What does the output here mean?
+
+A: 
+
+
+5) What would the outcome of 10 trials of 10 coins each be if you were using a biased coin that gave you an 80% chance of producing heads instead of a 50% chance?
+
+```{r}
+
+```
+
+Q: How does the output of this line of code differ from the output you saw in the previous example that used a fair coin?  Did you expect these differences?
+
+A: 
+
+
