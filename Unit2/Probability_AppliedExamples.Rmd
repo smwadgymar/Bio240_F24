@@ -1,0 +1,157 @@
+---
+title: 'Probability: Applied examples'
+author: "SMWadgymar"
+date: "2024-09-13"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+
+PRACTICE: rbinom, dbinom, pbinom
+
+Do not use ChatGPT to answer these questions - try them on your own based on the information above. For each of the following scenarios, identify which function (rbinom, dbinom, or pbinom) you should use and find the solution.
+
+Scenario 1: You are studying the effect of a toxin on a frog population. It is known that 40% of the frogs exposed to this toxin will die. You want to simulate how many frogs out of a sample of 100 survive after being exposed to the toxin.
+
+```{r}
+
+```
+
+
+Scenario 2: A predator has a 30% chance of catching its prey during a hunt. You want to find the cumulative probability that the predator will catch 3 or fewer prey in 10 hunts.
+
+```{r}
+
+```
+
+Scenario 3: In a population of 1000 birds, 5% are infected with a virus. You want to simulate the number of infected birds in a random sample of 100 birds.
+
+```{r}
+
+```
+
+
+Scenario 4: In a population of plants, there is a 10% chance that any given offspring will carry a certain genetic mutation. You have 50 offspring and want to calculate the probability of getting exactly 5 mutants in this population.
+
+```{r}
+
+```
+
+
+Scenario 5: There is a 20% chance of detecting an endangered species in a specific region during a survey. You want to find the probability that in 15 surveys, the species is detected at least once.
+
+```{r}
+
+```
+
+
+Scenario 6: You are testing whether light exposure affects the blooming of flowers. You know from previous studies that 70% of flowers bloom when exposed to sunlight. In an experiment with 20 flowers, you want to calculate the probability that 14 flowers will bloom.
+
+```{r}
+
+```
+
+
+Scenario 7: In a fish population, 15% are infected by a certain parasite. You want to calculate the probability of observing 8 or fewer infected fish in a sample of 50.
+
+```{r}
+
+```
+
+
+Scenario 8: A bird species has a 60% chance of successfully hatching eggs. You are interested in simulating how many out of 5 eggs in a nest will hatch in each of 20 nests.
+
+```{r}
+
+```
+
+
+Scenario 9: In a population of insects, 45% of offspring exhibit a specific trait. You want to simulate the number of offspring with this trait in 50 random insect births.
+
+```{r}
+
+```
+
+
+Scenario 10: You are studying the expression of a gene and know that each gene copy has a 25% chance of being expressed. In a group of 12 gene copies, you want to determine the probability that 3 of them will be expressed.
+
+```{r}
+
+```
+
+
+
+
+PRACTICE: Case study
+
+Consider the following scenario.
+
+Dr. Lopez, a microbiologist, is studying the emergence of antibiotic resistance in Escherichia coli (E. coli, strain ABC123), a common bacterial strain. She is particularly interested in the probability that a mutation will arise in the bacterial population that confers resistance to a specific antibiotic.
+
+Dr. Lopez grows 100 million bacterial cells in each of one hundred independent cultures under controlled laboratory conditions. She knows that, on average, there is a 1 in 10,000 (0.0001 or 0.01%) chance that a single bacterium will spontaneously mutate and become resistant to the antibiotic.
+
+From each culture, she plates 1000 cells on each of 20 different petri dishes that have antibiotics distributed throughout the agar. 
+
+Q1: How many biological replicates are there in this scenario? Hint: biological replicates are independent samples from which parallel measurements can be taken.
+
+A: 
+
+Q2: How many technical replicates are there in this scenario? Hint: technical replicates are repeated measurements of the same sample.
+
+A: 
+
+Q3: On average, what is the expected number of cells that will experience a mutation for antibiotic resistance?
+
+```{r}
+
+```
+
+
+Q4: Dr. Lopez wants to simmulate the probability that antibiotic resistance will evolve in her experiment. Use the appropropriate R function to simulate the outcomes. Save your simulation as 'SimLopez'.
+
+```{r}
+???
+```
+
+Let's create a probability distribution. You can do that using this code:
+
+```{r}
+prop.table(table(SimLopez))
+```
+
+
+Although this output appears to contain six rows of numbers, it actually contains two rows of numbers that are longer than you can view in one line (i.e., what you see as six lines is actually two rows in this order: 1, 2, 1 cont'd, 2 cont'd, 1 cont'd, 2 cont'd). Each value in row 1 has a corresponding value in row 2. 
+
+Q5: What do the numbers in the top row represent?
+
+A: ???
+
+Q6: What do the numbers in the bottom row represent?
+
+A: ???
+
+Q7: Let's graph the probability distribution. You can do that using a histogram. The 'freq' argument specifies that you want proportions reported on the y-axis instead of counts.
+
+```{r}
+hist(???, freq=F, xlab="???")
+```
+
+Q8: Estimate the probability that a replicate would include more than the expected number of cells with mutations.
+
+```{r}
+
+```
+
+Q9: Is this number what you expected? Why or why not? 
+
+A: 
+
+
+Q10: What mutation rate would be needed for the cumulative probability of 200 or more cells within a replicate to decrease to approximately 0.1?
+
+```{r}
+
+```
+
+
