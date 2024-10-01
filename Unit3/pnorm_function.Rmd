@@ -1,0 +1,114 @@
+---
+title: "pnorm and dnorm functions"
+author: "SMWadgymar, KGSmith"
+date: '2022-08-16'
+output: html_document
+---
+
+
+In triathlons, it is common for racers to be placed into age and gender groups. Friends Leo and Mary both completed the Hermosa Beach Triathlon, where Leo competed in the Men, Ages 30 - 34 group while Mary competed in the Women, Ages 25 - 29 group. Leo completed the race in 1:22:28 (4948 seconds), while Mary completed the race in 1:31:53 (5513 seconds). Obviously Leo finished faster, but they are curious about how they each did within their respective groups. Can you help them? Here is some information on the performance of their groups:
+
+~The finishing times of the Men, Ages 30 - 34 group has a mean of 4313 seconds with a standard deviation of 583 seconds.
+
+~The finishing times of the Women, Ages 25 - 29 group has a mean of 5261 seconds with a standard deviation of 807 seconds.
+
+~The distributions of finishing times for both groups are approximately Normal.
+
+Remember: a better performance corresponds to a faster finish.
+
+
+
+1) What is the shorthand notation for these two normal distributions?
+
+A:
+
+
+2) What are the z-scores for Leo's and Mary's finishing times? What do these z-scores tell you?
+
+```{r}
+
+```
+
+A: 
+
+
+3) Did Leo or Mary rank better in their respective gropus?
+
+A: 
+
+
+4) What percent of the triathletes did Leo finish faster than in his group? That is, what percent of triathletes were slower than Leo? To answer this question, we will use the pnorm function, which will give you the cumulative probability below a specified value for a given normal distribution.
+
+The arguments for pnorm are pnorm(q=, mean=, sd=) where q is the value of interest.
+
+Use the pnorm function to estimate the percent of triathletes that finished slower than Leo.
+
+```{r}
+
+```
+
+
+
+
+5) What percent of the triathletes did Mary finish faster than in her group? In other words, what percent of triathletes were slower than Mary?
+
+A:
+```{r}
+
+```
+
+
+
+6) 6) The qnorm function will report the cutoff value associated with the percentile for a given normal distribution. The arguments are:
+
+qnorm(p=percentile, mean=, sd=, lower.tail=T)
+
+Note that the lower.tail argument equals T by default.
+
+
+Use qnorm() to calculate the finishing time that would distinguish the fastest 10% of men in the men, 31-35 triathlon.  Calculate it two ways, once with lower.tail=T and once with lower.tail=F.
+
+```{r}
+
+```
+
+Use qnorm() to calculate the finishing time that would distinguish the slowest 25% of men in the men, 31-35 triathlon? Calculate it two ways, once with lower.tail=T and once with lower.tail=F.
+
+```{r}
+
+```
+
+
+
+
+7) Let's make a graph.  Below each line of code is a # for you to annotate what each line is doing.  Work through these lines one by one and annotate while you go.  
+
+```{r}
+x.values=seq(2000, 9000, length=1000)
+# 
+
+Leo.y.values=dnorm(x.values, mean=4313, sd=583)
+# 
+
+Mary.y.values=dnorm(x.values, mean=5261, sd=807)
+# 
+
+plot(x.values, Leo.y.values, type="l")
+# 
+
+#The lines() function, below, lets us add a new line to a plot. If we used plot(), it would produce a second plot. But what we want is one plot with two distributions on it, and lines() lets us add the second distribution.
+
+lines(x.values, Mary.y.values, type='l', lty=2)
+# 
+
+abline(v=c(4948, 5513), lty=c(1,2))
+# 
+
+legend('topright', legend=c("Men, 31-35", "women, 26-30", "Leo", "Mary"), lty=1:2, cex=0.8)
+#
+```
+
+Q: The dnorm() function is similar to dbinom().  What do you think dnorm() is doing in the code above?
+
+A:
+
