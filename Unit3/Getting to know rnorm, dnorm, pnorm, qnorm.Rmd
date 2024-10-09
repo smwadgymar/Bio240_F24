@@ -1,0 +1,149 @@
+---
+title: "Getting to know rnorm, dnorm, pnorm, and qnorm"
+author: "SMWadgymar"
+date: "2024-10-09"
+output: pdf_document
+---
+
+We familiarized ourselves with rbinom, dbinom, and pbinom in the last unit, and used these functions to run simulations and estimate probabilities related to binomially distributed variables (that can take the form of 0/1, T/F, etc.).
+
+Now, we are working with continuous variables that are normally distributed. Recall that a normal distribution is characterized by two parameters: N(u, s)
+
+To sample from a normal distribution, you use the function rnorm where n represents the number of samples desired:
+rnorm(n, mean, sd)
+
+To estimate the exact probability (density) of obtaining a particular value from a normal distribution, you use the function pnorm, where x is the value of interest: 
+dnorm(x, mean, sd)
+
+To estimate the cumulative probability up to a particular value, use the pnorm function, which begins cumulatively from the lower tail by default (lower.tail=T):
+pnorm(x, mean, sd)
+
+To estimate the value that corresponds with a particular percentile, use the qnorm function:
+qnorm(p, mean, sd)
+
+Use the information above to address the following questions (in complete sentences, and make sure to use the terminology and concepts we have learned about in class to justify your answers):
+
+
+1) The Elysian Warbler (Sylvia elysium) is a small passerine bird found in the temperate forests of Northland. A long-term study has collected data on the wing lengths of adult males, which are normally distributed with a mean of 62 mm and a standard deviation of 3.5 mm. Researchers have also recorded average clutch sizes, breeding seasons, and migration patterns for this species.
+
+In a recent survey, an ornithologist captured a male Elysian Warbler with a wing length of 67 mm. The researcher wants to know how unusual this measurement is within the population.
+
+```{r}
+pnorm(67, 62, 3.5)
+```
+
+A: This value is 0.923 SD above the mean which is not unusual. A value beyond +/- 2 SD of the mean would be considered unusual.
+
+
+
+2) A genetics lab is investigating telomere length in human fibroblasts. They've found that telomere length (in kilobase pairs) in a population of healthy adults follows a normal distribution with a mean of 8.5 kbp and a standard deviation of 1.2 kbp. The researchers have also gathered data on the subjects' ages, lifestyles, and oxidative stress levels.
+
+To identify individuals with exceptionally short telomeres for further study, the team wants to establish a threshold for the bottom 2.5% of the telomere length distribution.
+
+```{r}
+qnorm(0.025, 8.5, 1.2)
+```
+
+A: Individuals with telomere lengths shorter than 6.15 kbp would have exceptionally short telomeres.
+
+
+
+3) Researchers are studying the enzyme kinetics of beta-galactosidase in E. coli. They've determined that the reaction rate (in μmol/min) at a fixed substrate concentration follows a normal distribution with a mean of 42 umol/min and a standard deviation of 3.5 μmol/min. The team has also collected data on the enzyme's quaternary structure, optimal pH, and temperature sensitivity.
+
+In a recent experiment, a graduate student observed a reaction rate of 48 umol/min. What is the probability of observing a reaction rate greater than this value?
+
+```{r}
+#Either option would work
+1-pnorm(49, 42, 3.5)
+pnorm(49, 42, 3.5, lower.tail=F)
+```
+
+A: The probability of observing a reaction rate of 48 umol/min or greater is 0.023.
+
+
+
+4) Botanists are investigating the nectar production of the Mountain Lupine (Lupinus montanus), a flowering plant native to alpine meadows. They've found that the daily nectar production per flower (in microliters) is normally distributed with a mean of 3.2 uL and a standard deviation of 0.8 uL. The researchers have also collected data on pollinator visitation rates, seed production, and soil preferences for this species.
+
+To understand the plant's interactions with its pollinators, the team wants to compare the likelihood of different nectar production levels. Compare the probabilities of Mountain Lupine flowers producing 2.5 uL, 3.2 uL, and 4.0 uL of nectar per day. What do these values tell you about the relative likelihood of these production levels?
+
+```{r}
+dnorm(2.5, 3.2, 0.8)
+dnorm(3.2, 3.2, 0.8)
+dnorm(4.0, 3.2, 0.8)
+```
+
+A: The probability of Mountain Lupine flowers producing all three levels of nectar per day are quite high (P(2.5)=0.34, P(3.2)=0.50, P(4.0)=0.30). The most likely value of the three is 3.2 uL because it equals the mean observed in the population. As values deviate above and below the mean, the probability of observing them decreases.
+
+
+
+5) Microbiologists are investigating antibiotic resistance in Staphylococcus aureus. They've found that the minimum inhibitory concentration (MIC) of a new antibiotic (in ug/mL) against a particular strain follows a normal distribution with a mean of 2.8 ug/mL and a standard deviation of 0.4 ug/mL. The team has also gathered data on the bacteria's growth rate, biofilm formation capacity, and virulence factors.
+
+In a clinical isolate, they observed an MIC of 3.5 ug/mL. What is the probability of observing an MIC greater than or equal to 3.5 uL/mL?
+
+```{r}
+#Either option would work
+1-pnorm(3.5, 2.8, 0.4)
+pnorm(3.5, 2.8, 0.4, lower.tail=F)
+```
+
+A: The probability of observing an MIC greater than or equal to 3.5 is 0.04.
+
+
+
+6) Marine biologists are studying the Atlantic Bluefin Tuna (Thunnus thynnus) population in the Mediterranean Sea. They have gathered data on the weights of mature individuals, which follow a normal distribution with a mean of 250 kg and a standard deviation of 45 kg. The researchers have also collected information on migration routes, spawning grounds, and feeding habits.
+
+To aid in conservation efforts, the team wants to establish a threshold for identifying the largest individuals in the population, which may have higher reproductive potential. Determine the weight threshold that separates the top 5% of Atlantic Bluefin Tuna by weight from the rest of the population.
+
+```{r}
+qnorm(0.95, 250, 45)
+```
+
+A: Atlantic Bluefin Tuna that weight 324 kg or higher represent the top 5% of weights and should have higher reproductive potential.
+
+
+
+7) Immunologists are studying how antibodies improve their binding to antigens during an immune response. Antibodies are proteins that bind to specific antigens (like parts of viruses or bacteria). The strength of this binding is measured by the dissociation constant (Kd). Lower Kd values mean stronger binding (better antibodies). During an immune response, B cells (which produce antibodies) go through cycles of mutation and selection. This process tends to produce antibodies with lower Kd values over time. Previous work has demonstrated an average Kd of 10 (representing Kd = 10^-10 M) and standard deviation of 1.
+
+To simulate this process, called affinity maturation, do the following:
+
+a) Simulate Kd values for a population of 100 antibodies and save the values.
+
+```{r}
+sim1<-rnorm(100, 10, 1)
+```
+
+b) Simulate 100 mutations to Kd using a mean of 0 and sd of 0.5 and save the values.
+
+```{r}
+mutations<-rnorm(100, 0, 0.5)
+```
+
+c) Add the simulated mutations to Kd to the original Kd values for the 100 antibodies to represent the new Kd values observed after one round of replication. Save the values.
+
+```{r}
+sim1_mutations<-sim1+mutations
+```
+
+d) From this new population of antibiodies, keep only the 50 antibodies with the lowest Kd values and save them. This step simulates selection.
+
+```{r}
+sim1_low50<-sort(sim1_mutations)[1:50]
+```
+
+e) Simulate a new population of 100 antibodies using the new mean and sd of Kd from the antibodies that were retained after selection.
+
+```{r}
+sim2<-rnorm(100, mean(sim1_low50), sd(sim1_low50))
+```
+
+f) How does the mean Kd from the starting population of antibodies compare to the mean Kd from the new population? What about the standard deviation? What does this mean biologically?
+
+```{r}
+mean(sim1)
+mean(sim2)
+sd(sim1)
+sd(sim2)
+```
+
+A: The mean and the standard deviation have decreased. This occurred because selection favored antibodies with stronger binding, so we saw Kd evolve to be lower, on average, from one generation to the next.
+
