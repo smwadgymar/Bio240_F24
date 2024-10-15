@@ -29,10 +29,10 @@ Use the information above to address the following questions (in complete senten
 In a recent survey, an ornithologist captured a male Elysian Warbler with a wing length of 67 mm. The researcher wants to know how unusual this measurement is within the population.
 
 ```{r}
-pnorm(67, 62, 3.5)
+
 ```
 
-A: This value is 0.923 SD above the mean which is not unusual. A value beyond +/- 2 SD of the mean would be considered unusual.
+A: 
 
 
 
@@ -41,10 +41,10 @@ A: This value is 0.923 SD above the mean which is not unusual. A value beyond +/
 To identify individuals with exceptionally short telomeres for further study, the team wants to establish a threshold for the bottom 2.5% of the telomere length distribution.
 
 ```{r}
-qnorm(0.025, 8.5, 1.2)
+
 ```
 
-A: Individuals with telomere lengths shorter than 6.15 kbp would have exceptionally short telomeres.
+A: 
 
 
 
@@ -53,12 +53,10 @@ A: Individuals with telomere lengths shorter than 6.15 kbp would have exceptiona
 In a recent experiment, a graduate student observed a reaction rate of 48 umol/min. What is the probability of observing a reaction rate greater than this value?
 
 ```{r}
-#Either option would work
-1-pnorm(49, 42, 3.5)
-pnorm(49, 42, 3.5, lower.tail=F)
+
 ```
 
-A: The probability of observing a reaction rate of 48 umol/min or greater is 0.023.
+A: 
 
 
 
@@ -67,12 +65,10 @@ A: The probability of observing a reaction rate of 48 umol/min or greater is 0.0
 To understand the plant's interactions with its pollinators, the team wants to compare the likelihood of different nectar production levels. Compare the probabilities of Mountain Lupine flowers producing 2.5 uL, 3.2 uL, and 4.0 uL of nectar per day. What do these values tell you about the relative likelihood of these production levels?
 
 ```{r}
-dnorm(2.5, 3.2, 0.8)
-dnorm(3.2, 3.2, 0.8)
-dnorm(4.0, 3.2, 0.8)
+
 ```
 
-A: The probability of Mountain Lupine flowers producing all three levels of nectar per day are quite high (P(2.5)=0.34, P(3.2)=0.50, P(4.0)=0.30). The most likely value of the three is 3.2 uL because it equals the mean observed in the population. As values deviate above and below the mean, the probability of observing them decreases.
+A: 
 
 
 
@@ -81,12 +77,10 @@ A: The probability of Mountain Lupine flowers producing all three levels of nect
 In a clinical isolate, they observed an MIC of 3.5 ug/mL. What is the probability of observing an MIC greater than or equal to 3.5 uL/mL?
 
 ```{r}
-#Either option would work
-1-pnorm(3.5, 2.8, 0.4)
-pnorm(3.5, 2.8, 0.4, lower.tail=F)
+
 ```
 
-A: The probability of observing an MIC greater than or equal to 3.5 is 0.04.
+A: 
 
 
 
@@ -95,10 +89,10 @@ A: The probability of observing an MIC greater than or equal to 3.5 is 0.04.
 To aid in conservation efforts, the team wants to establish a threshold for identifying the largest individuals in the population, which may have higher reproductive potential. Determine the weight threshold that separates the top 5% of Atlantic Bluefin Tuna by weight from the rest of the population.
 
 ```{r}
-qnorm(0.95, 250, 45)
+
 ```
 
-A: Atlantic Bluefin Tuna that weight 324 kg or higher represent the top 5% of weights and should have higher reproductive potential.
+A: 
 
 
 
@@ -109,41 +103,38 @@ To simulate this process, called affinity maturation, do the following:
 a) Simulate Kd values for a population of 100 antibodies and save the values.
 
 ```{r}
-sim1<-rnorm(100, 10, 1)
+sim1<-???
 ```
 
 b) Simulate 100 mutations to Kd using a mean of 0 and sd of 0.5 and save the values.
 
 ```{r}
-mutations<-rnorm(100, 0, 0.5)
+mutations<-???
 ```
 
 c) Add the simulated mutations to Kd to the original Kd values for the 100 antibodies to represent the new Kd values observed after one round of replication. Save the values.
 
 ```{r}
-sim1_mutations<-sim1+mutations
+sim1_mutations<-???
 ```
 
 d) From this new population of antibiodies, keep only the 50 antibodies with the lowest Kd values and save them. This step simulates selection.
 
 ```{r}
-sim1_low50<-sort(sim1_mutations)[1:50]
+sim1_low50<-sort(???)[1:50]
 ```
 
 e) Simulate a new population of 100 antibodies using the new mean and sd of Kd from the antibodies that were retained after selection.
 
 ```{r}
-sim2<-rnorm(100, mean(sim1_low50), sd(sim1_low50))
+sim2<-???
 ```
 
 f) How does the mean Kd from the starting population of antibodies compare to the mean Kd from the new population? What about the standard deviation? What does this mean biologically?
 
 ```{r}
-mean(sim1)
-mean(sim2)
-sd(sim1)
-sd(sim2)
+
 ```
 
-A: The mean and the standard deviation have decreased. This occurred because selection favored antibodies with stronger binding, so we saw Kd evolve to be lower, on average, from one generation to the next.
+A: 
 
