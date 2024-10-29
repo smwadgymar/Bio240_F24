@@ -1,0 +1,87 @@
+---
+title: "HW4"
+output: pdf_document
+date: "2024-10-28"
+---
+
+Question 1) Six chimpanzees were tested in the length of time it takes to solve a problem. The “before” measurements are minutes for a naïve chimp to solve the problem while the “after” times are minutes taken after training. 
+
+```{r}
+Before <- c(6.0, 5.8, 5.7, 5.5, 5.9, 5.2)
+After <- c(2.1, 3.6, 2.8, 2.6, 4.2, 2.3)
+```
+
+a) Using proper notation, write the appropriate null and alternative hypotheses to determine if chimps solved the puzzle faster after training.
+
+
+
+b) Generate the appropriate visualization for these data.
+
+```{r}
+
+```
+
+
+c) Comment on whether the data appear normal and determine (**with justification**) what hypothesis test to perform.
+
+```{r}
+
+```
+
+
+
+
+d) Conduct the hypothesis test and interpret the given p-value.
+
+```{r}
+
+```
+
+
+
+
+
+Question 2) Caffeine. Many humans like the effect of caffeine, but it occurs in plants as a deterrent to herbivory by animals. Caffeine is also found in flower nectar, and nectar is meant as a reward for pollinators, not a deterrent. How does caffeine in nectar affect visitation by pollinators? Singaravelan et al. (2005) set up feeding stations where bees were offered a choice between a control solution with 20% sucrose or a caffeinated solution with 20% sucrose plus some quantity of caffeine. Over the course of the experiment, for different concentration of caffeine were provided: 50, 100, 150, and 200 pp. The response variable was the difference between the amount of nectar consumed from the caffeine feeders and that removed from the control feeders at the same station (in grams). 
+
+
+Here are the data, stacked into a datafile. Make sure to look at it and familiarize yourself with it.
+
+```{r}
+caffeine <-data.frame(
+ppm50=c(-0.4, 0.34, 0.19, 0.05, -0.14), 
+ppm100=c(0.01, -0.39, -0.08, -0.09, NA), 
+ppm150=c(0.65, 0.53, 0.39, -0.015, 0.46), 
+ppm200=c(0.24, 0.44, 0.13, 1.03, 0.05))
+ 
+ 
+caffeine_stack <- stack(caffeine)
+```
+
+
+
+a) Do you think that causation can be established in this study? Justify why or why not.
+
+
+b) State the null and alternative hypotheses appropriate for this study.
+
+
+c) Conduct the appropriate statistical test, including all necessary graphs to ensure that conditions for inference have been met to test the hypotheses you stated above. Interpret the P-value. 
+
+To conduct an ANOVA, you can use the aov() function, where the first argument is the response variable and the second argument is the explanatory variable (they are separated by a ~ which you can interpret as meaning 'explained by').
+
+```{r}
+caffeine.aov<-aov(???~???)
+summary(caffeine.aov)
+```
+
+A: 
+
+d) Conduct any necessary post-hoc analyses to make as complete as conclusion as possible and interpret these results. 
+
+To do a post-hoc analysis in R, you can use the TukeyHSD() function, where the only argument you need is the name of your ANOVA model.
+
+```{r}
+TUKEYHSD(???)
+```
+
+A: 
