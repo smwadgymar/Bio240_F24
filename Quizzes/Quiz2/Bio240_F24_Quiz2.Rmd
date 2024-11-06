@@ -1,0 +1,346 @@
+---
+title: "Quiz 2, Fall 2024"
+output: pdf_document
+---
+
+################################################
+Instructions
+
+This quiz is due by Monday, November 11th, at 12:00 pm (noon) and should be submitted on Moodle.  
+
+You may use your notes, scripts, and ChatGPT as resources EXCEPT FOR QUESTION 8, where you can only use your notes, and you may not consult with a person in our out of the classroom on any part of the quiz. Use full sentences where appropriate and show your equations, notation, work, and code for full credit!  I will be looking for complete and thorough answers. You can submit a PDF file with your answers and detailed attribution statement (which is a required element for full credit.)
+
+You must Knit to PDF before submitting. Check your PDF after you knit: if your code is running off the right side, either adjust your code within each code chunk or knit to HTML and then convert to PDF.
+
+Include your written answers, numeric answers, graphs, and code in this file.
+
+Importantly, make sure this Rmd file is housed in the same folder as the datasets being used on the quiz and make sure to import your data using a line of code BEFORE you start using it to answer questions.
+
+Words of caution: You may optionally use ChatGPT as a resource. It is not always correct, so you need to understand and assess its output. In addition, you will not have access to ChatGPT or your notes for the final exam and I urge you to test your understanding independently of ChatGPT as much as possible. Please consider answering ALL questions on your own and then using ChatGPT or other resources (optionally) to verify and adjust your answers, if needed (in different font color and with explanation). I would much rather see your first attempts at answering questions on your own than see output pasted from ChatGPT from the start. Remember: the goal is to learn, which requires testing yourself.
+
+You can take this quiz over multiple sessions, but do not spend more than 3.5 hours on it (plus any additional time afforded to you by your accommodations).
+
+
+################################################
+Pledge
+
+As with all of the quizzes in my class, this is a take-home and PLEDGED assignment.  Read the pledge below and sign if you can do so with honor. An electronic signature can be used in lieu of signing by hand.
+
+On my honor I have neither given nor received unauthorized information regarding this work, I have followed and will continue to observe all regulations regarding it, and I am unaware of any violation of the Honor Code by others.
+
+Electronic signature: 
+
+
+
+################################################
+Question 1
+################################################
+The birthweight.csv file contains the birthweight of 1000 singleton babies born in the United States (Martin et al. 2011). (2 points each) 
+
+```{r}
+#Import your data
+
+```
+
+
+a) What is the probability of a baby being born weighing more than 5 kg?
+
+```{r}
+
+```
+
+
+b) What is the probability of a baby being born weighing between 3 kg and 4 kg?
+
+```{r}
+
+```
+
+
+c) What percentage of babies is more than 1.5 standard deviations from the mean in either direction?
+
+```{r}
+
+```
+
+
+d) If you took a random sample of 10 babies, what is the probability that their mean weight would be greater than 3 kg?
+
+```{r}
+
+```
+
+
+
+
+################################################
+Question 2) They geyser.csv dataset in RStudio includes all data on every eruption of Old Faithful Geyser in Yellowstone National Park that occurred from August 1st to August 15th, 1985. In this dataset are two variables “waiting” and “duration.” Waiting is the time in min to this eruption from the last eruption. “Duration” is the length of the eruption in min. (8 points)
+
+
+```{r}
+#Import your data
+
+```
+
+
+a) Using any and all appropriate graphs, discuss whether the waiting time for this sample is normally distributed. Paste your code, output, and graphs below. (4 points)
+
+```{r}
+
+```
+
+
+b) Calculate and interpret a 98% confidence interval for the true average waiting time at Old Faithful Geyser. Note any assumptions you made. (3 points)
+
+```{r}
+
+```
+
+
+c) Suppose you considered data taken from August 1st to August 30th, 2019. The sample size is twice as large, but you found the same standard deviation. Would the confidence interval be the same width, wider, or narrower? Justify your answer. (1 point)
+
+```{r}
+
+```
+
+
+
+
+
+
+
+################################################
+Question 3
+################################################
+Erythronium americanum, also known as trout lily, is an early-spring flowering plant commonly found in the forests of Eastern North America.  Previous work suggested that this species needs at least 30 days to grow before plants have acquired enough resources to produce a flower.  Dr. Emily Austen suspects that plants have evolved to flower at a faster rate because climate change has resulted in warmer springs.  She randomly surveyed 435 plants in a nearby trout lily population and measured the number of days between snow melt (when growth begins) and when plants first flowered.  She found that flowers were produced an average of 23.44 days after snowmelt with a standard deviation of 3.72. 
+ 
+a) State the null and alternative hypotheses in full sentences as well as using appropriate statistical notation. (2 points)
+
+
+
+b) Are conditions for inference satisfied?  Provide your detailed reasoning. (2 points)
+
+```{r}
+
+```
+
+
+c) Conduct a formal test to evaluate Dr. Austen’s hypothesis.  Interpret the p-value in the context of the hypothesis being tested. (2 points)
+
+```{r}
+
+```
+
+
+d) Calculate a 95% confidence interval for average time to flowering.  (2 points)
+
+```{r}
+
+```
+
+
+e) Interpret this confidence interval in the context of the data. (2 points)
+
+
+
+f) Provide a general description of what “95% confident” means. (2 points)
+
+
+
+
+
+
+
+################################################
+Question 4
+################################################
+Which of the following scenarios would result in the same p-value (rounded to the second decimal place)?  Make sure you list your p-values and show your work.  Diagrams and/or descriptions can also help. (5 points)
+
+a.  H0:  μ = 0.3   vs.   Ha: u > 0.3,     z = 1.65
+
+
+b.  H0:  μ = 0.25   vs.   Ha: u != 0.25,   z = 1.65
+
+
+c.  H0:  μ = 0.5   vs.   Ha: u != 0.5,    z = 2.65
+
+
+d.  H0:  μ = 0.75   vs.   Ha: u < 0.75,   z = -1.65
+
+
+e.  H0:  μ = 0.5   vs.   Ha: u > 0.5,     z = 2.65 
+
+
+f.   H0:  μ = 0.4   vs.   Ha: u != 0.4,    z = -1.96
+
+```{r}
+
+```
+
+
+
+
+
+
+
+################################################
+Question 5
+################################################
+A group of students working in collaboration with Dr. Thurtle-Schmidt and me needed to determine the mass of a large number of Arabidopsis seeds. To speed up the process, they randomly assigned half of the seeds to Dr. Thurtle-Schmidt’s analytical balance (DT-S) and the remainder to my (SW) analytical balance. Two students used the DT-S balance and the other two students in the group used the SW balance. Their data are provided in the file dueling_balances.csv. The sample sizes are unequal because several of the seeds assigned to the DT-S balance fell into an inaccessible crack between cabinets before their masses could be measured. Before conducting further analyses, the students wanted to check if the mean mass of seeds measured on the DT-S balance was equal to that of those measured on SW’s balance. (18 points)
+
+
+```{r}
+#Import your data
+
+```
+
+
+a) State the null and alternative hypotheses in full sentences as well as using appropriate statistical notation. (2 points)
+
+
+b) Determine the appropriate test, including your reasoning for conducting this test. Additionally, check that conditions for inference satisfied. Provide your detailed reasoning, including any necessary graphs or other analyses conducted in R. (6 points)
+
+```{r}
+
+```
+
+
+c) Conduct the formal test you identified in (b) to evaluate your hypothesis. Interpret the p-value in the context of the hypothesis being tested. (2 points)
+
+```{r}
+
+```
+
+
+d) The students are a bit worried that the two balances might not be calibrated equally. This group randomly selected 34 Arabidopsis seeds and placed each in a numbered microcentrifuge tube so they could keep track of each seed. They measured the mass of each seed on both the SW and DT-S balances, randomly assigning the order of balances for each seed. Their data are provided in the file balances_2.csv.  Conduct a statistical test using alpha =0.05 to analyze the results. Justify your selection of statistical test and state your null and research hypotheses and your conclusion. (8 points)
+
+```{r}
+
+```
+
+
+
+
+
+
+
+################################################
+Question 6
+################################################
+Mosquitoes contribute to more human deaths than any other organism because they transmit diseases such as malaria, dengue fever, and yellow fever. Some of these diseases develop or grow inside the mosquito – a process that can take some time. Therefore, one possible strategy to reduce transmission of disease is to cause mosquitos to die slightly sooner, leaving insufficient time for the disease to develop. Fang et al. (2011) tested the idea by infecting mosquitos with a fungus (Matarhizum anisopliae) that reduced the life span of the insect. In addition, they developed a transgenic strain of fungus that carries a gene for scorpine, a protein from scorpion venom known to inhibit the gamete stages of malaria. They compared three groups of mosquitoes: a “control” group that was not treated with fungus, a “wild type” group that was infected with unmodified fungus, and a “scorpine” group that was infected with the transgenic fungus. Each mosquito was infected with malaria. The response variable was the log number of sporozoites (infectious cells of malaria) in the salivary glands of the mosquitoes. The data are in the file MalariaFungusVenom.csv. (14 points)
+
+
+```{r}
+#Import your data
+
+```
+
+
+a) State the null and alternative hypotheses in full sentences as well as using appropriate statistical notation. (2 points)
+
+
+b) Determine the appropriate test, including your reasoning for conducting this test. Additionally, check that conditions for inference satisfied. Provide your detailed reasoning, including any necessary graphs or other analyses conducted in R. (2 points)
+
+```{r}
+
+```
+
+
+c) Conduct the formal test you identified in (b) using α = 0.05 to evaluate your hypothesis. Interpret the p-value in the context of the hypothesis being tested. (4 points)
+
+```{r}
+
+```
+
+
+d) Identify and write the test statistic calculated in (c) and describe what that test statistic is quantifying for this test. (2 points)
+
+
+e) Determine if posthoc analysis is necessary, and if so conduct the appropriate posthoc analysis and interpret all p-values in the context of the hypotheses being tested. (4 points)
+
+```{r}
+
+```
+
+
+
+
+
+
+################################################
+Question 7
+################################################
+Ten green bean plants are grown with fertilizer and ten plants are grown without fertilizer to determine if the fertilizer contributes to faster growth. Growth in this case was measured as green bean height (in cm) after 4 weeks. The data from the study are in the file green_beans.csv.  
+
+```{r}
+#Import your data
+
+```
+
+
+a) State the null and alternative hypotheses in full sentences as well as using appropriate statistical notation. (2 points)
+
+
+b) Determine the appropriate test, including your reasoning for conducting this test. Additionally, check that conditions for inference satisfied. Provide your detailed reasoning, including any necessary graphs or other analyses conducted in R. (2 points)
+
+```{r}
+
+```
+
+
+c) Conduct the formal test you identified in (b) using α = 0.05 to evaluate your hypothesis. Interpret the p-value in the context of the hypothesis being tested. (4 points)
+
+```{r}
+
+```
+
+
+
+
+
+
+################################################
+Question 8: You can NOT use ChatGPT on this question. You MAY use your notes.
+################################################
+
+Mark each statement as being either true or false.  If the statement is false, copy and paste it below and replace the 1-3 words needed to make the statement true.  (1 point each)
+
+a. The Central Limit Theorem states that as the sample size n increases, the data distribution should become approximately normal.
+
+
+b. The z-score for an observation that is equal to the mean is 1.
+
+
+c. The standard error of the mean will decrease as your sample size increases.
+
+
+d. If a 95% confidence interval for the difference in two means includes zero, you would reject the null hypothesis of no difference at alpha = 0.05.
+
+
+e. An ANOVA tests for differences between population means by examining the amount of variability between the samples relative to the amount of variability within the samples.
+
+
+f. If H0: u = 0.8, Ha: u != 0.8, mean x =0.94, p = 0.02, and alpha = 0.05, we can conclude with a two-tailed test that the population mean is significantly greater than 0.8.
+
+
+g. A p-value is a conditional probability that describes the probability of obtaining a test statistic at least as extreme as the one observed given that the null hypothesis is true.
+
+
+h. Assuming that the null hypothesis for a statistical test is true, if you reject H0 with a test, you will be making a Type II error.
+
+
+i. As the df decreases, the t distribution gets closer and closer to the normal distribution.
+
+
+j. Assuming the null hypothesis is true, a study with a larger sample is more likely than a smaller study to get the result that P < 0.05. 
+
+
+k. Reducing alpha from 0.05 to 0.01 increases the Type I error rate.
+
+
+l. The p-value associated with a z-value of 3.6 will be smaller than the p-value associated with a t-value of 3.6 when the df are small.
+
+
+m. As the number of groups you compare with an ANOVA increases, the modified significance level for pairwise tests increases .
+
+
